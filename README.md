@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # gulp-starter-kit
 
 If you want to know how to build that kind of startet kit you can watch the YouTube videos I created while working on this starter kit: https://goo.gl/sMFmyN (Note: Videos are in Polish).
@@ -46,3 +47,6 @@ In order to build the production version of your project run __gulp build__ from
 - run-sequence
 
 Big thanks to all the authors of these packages :heart:
+=======
+# exozet
+>>>>>>> c65a8fb906ce68249461455b706f0a2610ecab0b
