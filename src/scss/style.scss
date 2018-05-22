@@ -294,9 +294,21 @@ main {
 
 .site-form {
   form {
-    margin-left: 18px;
+    margin-left: 0;
     margin-top: 2em;
-    width: 85%;
+    width: 77%;
+
+    @include breakpoint(sm) {
+      width: 100%;
+      label {
+        width: 70px;
+        text-align: left;
+      }
+
+      legend {
+        margin-left: 0;
+      }
+    }
 
     fieldset:last-child {
       text-align: right;
@@ -307,6 +319,7 @@ main {
     align-items: center;
     display: flex;
     flex: 1;
+    position: relative;
 
     label {
       font-size: 14px;
@@ -336,6 +349,20 @@ main {
         color: $red;
       }
     }
+  }
+
+  // Form Validation 
+
+  .error {
+    border-color: red;
+    position: relative;
+  }
+
+  .error-message {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 12px;
   }
 }
 

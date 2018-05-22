@@ -21,7 +21,7 @@
 	  				<li><a href="#">News</a></li>
 	  				<li><a href="#">Kontakt</a></li>
 	  				<li><a href="#">Impressium</a></li>
-	  			<ul>
+	  			</ul>
 	  		</nav>
 	  	</header>
 
@@ -74,7 +74,7 @@
 
 					<div class="site-form">
 
-						<form name="site_form">
+						<form name="site_form" data-validate>
 
 						  <fieldset>
 
@@ -85,35 +85,36 @@
 
 						    <div class="site-form__field">
 						      <label for="name">Name*</label>
-						      <input type="text" name="name" id="name">
+						      <input type="text" name="name" id="name" placeholder="Full Name" required pattern="^[a-zA-Z\s]+$" title="You can type only letters in this field">
 						    </div>
 
 						    <div class="site-form__field">
 						      <label for="email">E-mail*</label>
-						      <input type="email" name="email" id="email">
+						      <input type="email" name="email" id="email" placeholder="tomek@sobolew.ski" required>
 						    </div>
 
 						    <div class="site-form__field">
 						      <label for="phone">Telefon</label>
-						      <input type="phone" name="phone" id="phone">
+						      <input type="text" name="tel" id="tel" pattern="^[0-9]*$" title="You can type only numbers in this field">
 						    </div>
 
 						    <div class="site-form__field">
 						      <label for="komentar">Komentar</label>
-						      <textarea rows="8" name="komentar" id="komentar" value="">
-						      </textarea>
+						      <textarea rows="8" name="komentar" id="komentar" placeholder="max 500 characters" maxlength="500"></textarea>
 						    </div>
 
 						  </fieldset>
 
 						  <fieldset>
 						  	<legend hidden> Submit Button </legend>
-						  	<input type="submit"> Abschiken </input>
+						  	<button> Abschiken </button>
 						  </fieldset>
 
 						</form>
 
 					<!-- End Form --> 
+
+					</div>
 
 				</section>
 
@@ -220,35 +221,11 @@
     <script src="js/script.js"></script>
 
 		<script>
-		    var validator = new FormValidator('site_form', [{
-		    name: 'name',
-		    display: 'required',
-		    rules: 'required|alpha'
-		}, {
-		    name: 'phone',
-		    rules: 'numeric'
-		}, {
-		    name: 'password',
-		    rules: 'required'
-		}, {
-		    name: 'password_confirm',
-		    display: 'password confirmation',
-		    rules: 'required|matches[password]'
-		}, {
-		    name: 'email',
-		    rules: 'valid_email',
-		    depends: function() {
-		        return Math.random() > .5;
-		    }
-		}, {
-		    name: 'minlength',
-		    display: 'min length',
-		    rules: 'min_length[8]'
-		}], function(errors, event) {
-		    if (errors.length > 0) {
-		        // Show the errors
-		    }
-		});
+			validate.init({
+				messageValueMissing: 'This field is required',
+				messageTypeMismatchEmail: 'Please enter email address in correct format',
+				messagePatternMismatch: 'Please match the requested format.',
+			});
 		</script>
 
     <script>
